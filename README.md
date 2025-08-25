@@ -10,6 +10,7 @@ Thu	Methods/functions: parameters, return values. Create methods like borrowBook
 Fri	Classes and objects: create classes Book, Member. Add attributes and methods.
 Sat	Encapsulation: make fields private, use getters/setters. Implement borrow/return logic.
 Sun	Inheritance & Polymorphism: create subclasses like EBook and PrintedBook extending Book. Override methods.
+
 Week 2 – Collections, Exceptions, and File I/O
 
 Goal: Handle data collections, exceptions, and files.
@@ -22,6 +23,7 @@ Thu	File I/O: save and load library data to text files using FileReader/FileWrit
 Fri	Practice: Library Management System – add, remove, list books and members.
 Sat	Extend: persist borrowed books info to file and load on start.
 Sun	Review Week 1 & 2 concepts: redo exercises, fix bugs, clean code.
+
 Week 3 – SQL & Frameworks (Spring Boot + Hibernate/JPA)
 
 Goal: Connect Java apps to database and perform CRUD operations.
@@ -34,6 +36,7 @@ Thu	Hibernate/JPA: create Book and Member entities. Map to database tables.
 Fri	Spring Boot: set up project. Build REST endpoints (GET, POST, PUT, DELETE) for books/members.
 Sat	Implement borrowing and returning books via REST API.
 Sun	Combine Hibernate/JPA with Spring Boot for full CRUD functionality.
+
 Week 4 – Web Basics & Full-Stack Practice
 
 Goal: Build a small full-stack Java web application.
