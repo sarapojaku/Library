@@ -18,22 +18,29 @@ public class LibraryTest {
         };
 
         Scanner scanner = new Scanner(System.in);
+        boolean continueProgram = true;
 
-        // Login
-        System.out.print("Enter username: ");
-        String username = scanner.nextLine();
-        System.out.print("Enter password: ");
-        String password = scanner.nextLine();
+        while (continueProgram) {
+            // Login process
+            Account loggedUser = null;
+            while (loggedUser == null) {
+                System.out.print("Enter username: ");
+                String username = scanner.nextLine();
+                System.out.print("Enter password: ");
+                String password = scanner.nextLine();
 
-        Account loggedUser = null;
-        for (Account user : users) {
-            if (user.login(username, password)) {
-                loggedUser = user;
-                break;
+                for (Account user : users) {
+                    if (user.login(username, password)) {
+                        loggedUser = user;
+                        break;
+                    }
+                }
+
+                if (loggedUser == null) {
+                    System.out.println("Invalid username or password. Try again.\n");
+                }
             }
-        }
 
-        if (loggedUser != null) {
             System.out.println("\nLogin successful! Welcome " + loggedUser.getUsername() + "\n");
 
             int choice;
@@ -43,7 +50,7 @@ public class LibraryTest {
                 System.out.println("2. Borrow a book");
                 System.out.println("3. Return a book");
                 System.out.println("4. View my borrowed books");
-                System.out.println("5. Exit");
+                System.out.println("5. Logout");
                 System.out.print("Choose an option: ");
                 choice = scanner.nextInt();
 
@@ -96,7 +103,7 @@ public class LibraryTest {
                         break;
 
                     case 5:
-                        System.out.println("Exiting... Goodbye!");
+                        System.out.println("Logging out...\n");
                         break;
 
                     default:
@@ -104,8 +111,14 @@ public class LibraryTest {
                 }
             } while (choice != 5);
 
-        } else {
-            System.out.println("Invalid username or password. Access denied.");
+            // Ask if the user wants to log in again
+            System.out.print("Do you want to log in again? (yes/no): ");
+            scanner.nextLine(); // consume leftover newline
+            String again = scanner.nextLine().trim().toLowerCase();
+            if (!again.equals("yes")) {
+                continueProgram = false;
+                System.out.println("Exiting program. Goodbye!");
+            }
         }
 
         scanner.close();
