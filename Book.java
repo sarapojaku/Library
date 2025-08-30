@@ -1,31 +1,31 @@
-public class Book {
-    protected int id;
-    protected String title;
-    protected String author;
-    protected boolean isAvailable = true;
+import java.io.Serializable;
 
-    public Book(int id, String title, String author) {
-        this.id = id;
+public class Book implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private static int counter = 1;
+
+    private int id;
+    private String title;
+    private String author;
+    private boolean available = true;
+
+    public Book(String title, String author) {
+        this.id = counter++;
         this.title = title;
         this.author = author;
     }
 
-        public void getDetails() {
-        System.out.println("ID: " + id + ", Title: " + title + ", Author: " + author);
-    }
+    public int getId() { return id; }
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+    public boolean isAvailable() { return available; }
 
-    public void borrowBook() {
-        if (isAvailable) {
-            isAvailable = false;
-            System.out.println(title + " borrowed.");
-        } else {
-            System.out.println(title + " is not available.");
-        }
-    }
+    public void setTitle(String title) { this.title = title; }
+    public void setAuthor(String author) { this.author = author; }
+    public void setAvailable(boolean available) { this.available = available; }
 
-    public void returnBook() {
-        isAvailable = true;
-        System.out.println(title + " returned.");
+    @Override
+    public String toString() {
+        return id + ": " + title + " by " + author + " (" + (available ? "Available" : "Borrowed") + ")";
     }
 }
-
