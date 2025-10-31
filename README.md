@@ -75,7 +75,8 @@ At startup, choose:
 
 Default Users
 Username Password Role
-admin admin123 ADMIN
+admin admin123(it's not this) ADMIN
+sarapojaku Sara.123 MEMBER
 
 Newly registered users are saved and remain available on subsequent runs.
 
